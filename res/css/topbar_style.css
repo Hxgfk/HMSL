@@ -1,0 +1,71 @@
+#topbar {
+    width: 100%;
+    min-height: 40px;
+    background: var(--theme);
+    display: flex;
+    align-items: center;
+    -webkit-app-region: drag;
+}
+
+#topbar > * {
+    -webkit-app-region: no-drag;
+}
+
+#appicon {
+    position: relative;
+    float: left;
+    width: var(--appicon-size);
+    height: var(--appicon-size);
+    border: none;
+    margin-left: 5px;
+    left: 5px;
+    background-color: transparent;
+    background-image: url("../img/appicon/icon.png");
+    background-size: contain;
+    background-position: center;
+}
+
+#appicon:active {
+    border: none !important;
+}
+
+#top_name {
+    color: white;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#topbar_window_button_container {
+    height: 100%;
+    width: auto;
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+}
+
+.window_button {
+    border: none;
+    background-color: transparent !important;
+    width: 15px;
+    height: 15px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 100%;
+}
+
+.window_button:active {
+    opacity: 0.5;
+}
+
+#hide_window_button {
+    background-image: url("../img/icons/hidewindow.png");
+    margin-left: 5px;
+}
+
+#close_window_button {
+    background-image: url("../img/icons/closewindow.png");
+    margin: 15px;
+}

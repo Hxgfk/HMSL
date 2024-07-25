@@ -1,0 +1,209 @@
+#sever_list {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+#sever_folder_list {
+    float: left;
+    margin: 0;
+    height: 100%;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.sever_folder_list_block {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sever_folder_list_block:hover {
+    background-color: rgba(128, 128, 128, 0.2);
+}
+
+.sever_folder_list_block > * {
+    display: inline-block;
+}
+
+.sever_folder_list_block_icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 15px;
+}
+
+.sever_folder_list_block_name {
+    font-size: 15px;
+}
+
+.sever_folder_list_block_button_delete {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-image: url("../img/icons/close_black.png");
+    margin-left: 10px;
+}
+
+.sever_folder_list_block_button_delete:hover {
+    background-color: rgba(128, 128, 128, 0.25);
+}
+
+#sever_folder_list_leftbar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 200px;
+}
+
+#sever_folder_list_buttons {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+#sever_folder_list_buttons > * {
+    position: relative;
+    left: 0;
+}
+
+#sever_folder_list_add {
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/icons/add.png");
+    margin-right: 10px;
+}
+
+#sever_folder_list_reload {
+    width: 20px;
+    height: 20px;
+    background-image: url("../img/icons/reload.png");
+    margin-right: 10px;
+}
+
+.sever_folder_list_button_block {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.sever_folder_list_button_block:hover {
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+#sever_folder_list_main_cont {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#sever_folder_list_main {
+    position: relative;
+    width: 100%;
+    height: 87%;
+    margin: 10px;
+    background-color: white;
+    border-radius: 6px;
+    flex-direction: column;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+}
+
+#sever_folder_list_main_title {
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+    margin: 5px;
+}
+
+.sever_list_block {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 2px;
+}
+
+.sever_list_block > * {
+    display: inline-block;
+}
+
+.sever_list_block_left {
+    position: absolute;
+    left: 0;
+    float: left;
+    display: flex;
+    align-items: center;
+}
+
+.sever_list_block_left > * {
+    display: inline-block;
+}
+
+.sever_list_block_icon {
+    width: 35px;
+    height: 35px;
+    margin: 5px;
+}
+
+.sever_list_block_information_cont {
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.sever_list_block_information_name {
+    font-size: 15px;
+}
+
+.sever_list_block_information_desc {
+    font-size: 12px;
+    color: #b3b3b3;
+}
+
+.sever_list_block_right {
+    position: absolute;
+    right: 0;
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+.sever_list_block_right > * {
+    display: inline-block;
+}
+
+.sever_list_block_button_more {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    background-image: url("../img/icons/more.png");
+    border-radius: 50%;
+}
+
+.sever_list_block_button_more:hover {
+    background-color: rgba(128, 128, 128, 0.13);
+}
+
+.sever_list_block_button_more:active {
+    background-color: rgba(128, 128, 128, 0.25);
+}

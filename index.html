@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8" />
+    <title>Hello Minecraft Sever Launcher v1.0.0</title>
+    <link type="text/css" href="res/css/main_style.css" rel="stylesheet">
+    <link type="text/css" href="res/css/animations.css" rel="stylesheet">
+    <link type="text/css" href="res/css/topbar_style.css" rel="stylesheet">
+    <link type="text/css" href="res/css/mainpage_style.css" rel="stylesheet">
+    <link type="text/css" href="res/css/severlist_style.css" rel="stylesheet">
+</head>
+<body>
+<div id="topbar">
+    <button id="appicon"></button>
+    <span id="top_name">Hello Minecraft Sever Launcher v1.0.0</span>
+    <div id="topbar_window_button_container">
+        <button class="window_button" id="hide_window_button" onclick="hideWindow()"></button>
+        <button class="window_button" id="close_window_button" onclick="closeWindow()"></button>
+    </div>
+</div>
+<div id="bodydiv" class="noselect noappdrag">
+    <div class="body_cont" id="mainpage">
+        <div id="selectlist">
+            <div class="list_textblock">
+                <span>服务器</span>
+                <div class="list_textblock_border"></div>
+            </div>
+            <div class="list_option">
+                <img src="res/img/appicon/icon.png" class="list_option_icon" id="main_now_sever_icon">
+                <span class="list_option_title">TEST 1.20.1</span>
+            </div>
+            <div class="list_option" onclick="goSeverList()">
+                <img src="res/img/icons/installed_list.png" class="list_option_icon">
+                <span class="list_option_title">已安装的服务器</span>
+            </div>
+            <div class="list_option">
+                <img src="res/img/icons/download.png" class="list_option_icon">
+                <span class="list_option_title">下载安装新服务器</span>
+            </div>
+            <div class="list_textblock">
+                <span>通用</span>
+                <div class="list_textblock_border"></div>
+            </div>
+            <div class="list_option noselect">
+                <img src="res/img/icons/installed_list.png" class="list_option_icon">
+                <span class="list_option_title">设置</span>
+            </div>
+            <div class="list_option noselect" onclick="goToGithub()">
+                <img src="res/img/icons/github.png" class="list_option_icon">
+                <span class="list_option_title">开源</span>
+            </div>
+        </div>
+        <div>
+            <div id="runbutton_cont">
+                <button id="runbutton_name">
+                    <div id="run_button_text_cont">
+                        <span id="runbutton_title">启动服务器</span>
+                        <span id="run_sever_name">TEST 1.20.1</span>
+                    </div>
+                </button>
+                <div id="runbutton_select_sev_cont">
+                    <button id="button_select_sev">
+                        <div style="transform: rotate(90deg);width: 0;height: 0;border: 5px solid transparent;
+			border-right: 5px solid white;"></div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="body_cont" id="sever_list" style="display: none">
+        <div id="sever_folder_list_leftbar">
+            <div id="sever_folder_list">
+                <div class="sever_folder_list_block">
+                    <img src="res/img/icons/folder.png" class="sever_folder_list_block_icon">
+                    <span class="sever_folder_list_block_name">MAIN FOLDER</span>
+                    <button class="sever_folder_list_block_button_delete"></button>
+                </div>
+            </div>
+            <div id="sever_folder_list_buttons">
+                <div class="sever_folder_list_button_block">
+                    <button class="sever_folder_list_block_button" id="sever_folder_list_add"></button>
+                    <span class="sever_folder_list_block_name">添加服务器目录</span>
+                </div>
+                <div class="sever_folder_list_button_block">
+                    <button class="sever_folder_list_block_button" id="sever_folder_list_reload"></button>
+                    <span class="sever_folder_list_block_name">刷新</span>
+                </div>
+            </div>
+        </div>
+        <div id="sever_folder_list_main">
+            <span id="sever_folder_list_main_title">文件夹内服务器列表</span>
+            <div id="sever_folder_list_forjs">
+                <div class="sever_list_block">
+                    <div class="sever_list_block_left">
+                        <img src="res/img/icons/defaultsever.png" class="sever_list_block_icon">
+                        <div class="sever_list_block_information_cont">
+                            <span class="sever_list_block_information_name">TEST 1.20</span>
+                            <span class="sever_list_block_information_desc">测试服务器</span>
+                        </div>
+                    </div>
+                    <div class="sever_list_block_right">
+                        <button class="sever_list_block_button_more"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="res/js/funclib.js"></script>
+<script src="res/js/renderer.js"></script>
+</body>
+</html>
