@@ -7,7 +7,7 @@ function closeWindow() {
 }
 
 function goToGithub() {
-    window.dep.shell.openExternal('https://github.com/Hxgfk/HMSL');
+    window.dep.ipcRenderer.send("OpenURLByDefaultBrowser", ['https://github.com/Hxgfk/HMSL',])
 }
 
 window.dep.ipcRenderer.send('GetAppConfig');

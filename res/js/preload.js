@@ -1,7 +1,2 @@
-const {ipcRenderer, shell} = require("electron");
-window.dep = (()=>{
-    return {
-        "ipcRenderer": ipcRenderer,
-        "shell": shell
-    };
-})();
+const {ipcRenderer} = require("electron");
+window.dep = {ipcRenderer};
