@@ -135,7 +135,7 @@
 
 .sever_list_block {
     width: 100%;
-    height: 60px;
+    height: 46px;
     display: flex;
     align-items: center;
     margin: 0;
@@ -144,6 +144,10 @@
 
 .sever_list_block > * {
     display: inline-block;
+}
+
+.sever_list_block:hover {
+    background-color: rgba(128, 128, 128, 0.12);
 }
 
 .sever_list_block_left {
@@ -206,4 +210,18 @@
 
 .sever_list_block_button_more:active {
     background-color: rgba(128, 128, 128, 0.25);
+}
+
+#sever_folder_list_main_textcont {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#sever_folder_list_main_notfound {
+    font-size: 12px;
+    color: #c3c3c3;
 }

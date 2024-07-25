@@ -28,7 +28,7 @@ const create = function () {
             preload: path.join(__dirname, './preload.js')
         }
     });
-    //win.webContents.openDevTools();
+    // win.webContents.openDevTools();
     win.loadFile("index.html").then(r => {});
 }
 
@@ -40,6 +40,17 @@ function initIPCHandler() {
     ipcMain.handle("HideWindow", () => win.minimize());
     ipcMain.handle("OpenDevTools", () => win.webContents.openDevTools());
     ipcMain.handle("CloseDevTools", () => win.webContents.closeDevTools());
+    ipcMain.on("GetAppConfig", (event, args) => {
+        let data;
+        data = {
+            appVersion: "1.0.0",
+            general: {
+                animation: true,
+                animation_time: "0.2s"
+            }
+        };
+        event.reply("GetAppConfigBack", data);
+    });
 }
 
 app.whenReady().then(() => {

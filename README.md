@@ -6,7 +6,9 @@ HMSL 是一款 Minecraft 服务器启动器, 支持 Mod 管理, 参数自定义,
 目前只支持Windows系统，以后会支持其他平台.
 
 ## 插件
-您可以通过安装
+
+您可以通过安装插件实现对整个软件的自定义。<br>
+[API文档](https://www.hxgfk.com/hmsl/plugins/apidoc)
 
 ## 下载
 
@@ -14,10 +16,7 @@ HMSL 是一款 Minecraft 服务器启动器, 支持 Mod 管理, 参数自定义,
 
 ## 开源协议
 
-该程序在 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) 开源协议下发布, 同时附有附加条款.
-
-### 附加条款 (依据 GPLv3 开源协议第七条)
-您不得移除该程序所显示的版权声明. (依据 [GPLv3, 7(b)](https://github.com/HMCL-dev/HMCL/blob/11820e31a85d8989e41d97476712b07e7094b190/LICENSE#L368-L370))
+该程序在 [GPLv3](https://www.gnu.org/licenses/gpl-3.0.html) 开源协议下发布.
 
 ## 贡献
 
@@ -30,5 +29,6 @@ HMSL 是一款 Minecraft 服务器启动器, 支持 Mod 管理, 参数自定义,
 **要安装[NodeJS](https://nodejs.org/zh-cn)环境**<br>
 于项目根目录执行以下命令:<br>
 ```bash
+./download_deps.bat
 ./npm run make
 ```

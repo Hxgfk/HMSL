@@ -10,6 +10,9 @@
     <link type="text/css" href="res/css/severlist_style.css" rel="stylesheet">
 </head>
 <body>
+<script>
+    window.dep.ipcRenderer.send("HTMLPreInit");
+</script>
 <div id="topbar">
     <button id="appicon"></button>
     <span id="top_name">Hello Minecraft Sever Launcher v1.0.0</span>
@@ -25,11 +28,11 @@
                 <span>服务器</span>
                 <div class="list_textblock_border"></div>
             </div>
-            <div class="list_option">
+            <div class="list_option" onclick="goPage()">
                 <img src="res/img/appicon/icon.png" class="list_option_icon" id="main_now_sever_icon">
                 <span class="list_option_title">TEST 1.20.1</span>
             </div>
-            <div class="list_option" onclick="goSeverList()">
+            <div class="list_option" onclick="goPage('sever_list', {iconPath: 'url(\'./res/img/icons/arrow_left.png\')', iconClickEvent: 'goMainPage()', title: '已安装的服务器'})">
                 <img src="res/img/icons/installed_list.png" class="list_option_icon">
                 <span class="list_option_title">已安装的服务器</span>
             </div>
@@ -89,6 +92,9 @@
         </div>
         <div id="sever_folder_list_main">
             <span id="sever_folder_list_main_title">文件夹内服务器列表</span>
+            <div id="sever_folder_list_main_textcont">
+                <span id="sever_folder_list_main_notfound">当前文件夹下未找到任何服务器</span>
+            </div>
             <div id="sever_folder_list_forjs">
                 <div class="sever_list_block">
                     <div class="sever_list_block_left">
@@ -106,7 +112,11 @@
         </div>
     </div>
 </div>
-<script src="res/js/funclib.js"></script>
+<script>
+    let unregistered_page = [];
+    window.dep.ipcRenderer.send("HTMLInit");
+</script>
+<script src="res/js/api_renderer.js"></script>
 <script src="res/js/renderer.js"></script>
 </body>
 </html>

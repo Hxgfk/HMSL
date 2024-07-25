@@ -46,4 +46,64 @@
     }
 }
 
-/*forwards*/
+@keyframes top_show {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+        display: none;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bottom_show {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+        display: none;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes top_hide {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100%);
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes bottom_hide {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100%);
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes null_show {
+    from, to {
+        display: block;
+    }
+}
+
+@keyframes null_hide {
+    from, to {
+        display: none;
+    }
+}
+
+/*animation fill-mode: forwards*/
