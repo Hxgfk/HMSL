@@ -19,16 +19,19 @@ const topicon = document.getElementById("appicon");
 const topname = document.getElementById("top_name");
 const main_cont = document.getElementById("bodydiv");
 let defaultElementDisplayMode = {
+    mainpage: "block",
     sever_list: "flex",
-    mainpage: "block"
+    sever_manage: "flex"
 }
 let currentPage = "mainpage";
 const mainpage = document.getElementById('mainpage');
 const sever_list = document.getElementById('sever_list');
+const sever_manage = document.getElementById('sever_manage');
 
 let PageContainers = {
     "mainpage": mainpage,
-    "sever_list": sever_list
+    "sever_list": sever_list,
+    "sever_manage": sever_manage
 };
 
 let PageContainerElements = {
@@ -51,7 +54,8 @@ let PageContainerElements = {
             elm: document.getElementById("sever_folder_list_main"),
             direction: "right"
         }
-    ]
+    ],
+    "sever_manage": []
 };
 
 document.addEventListener("DOMContentLoaded", () => {
