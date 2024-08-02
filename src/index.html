@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <title>Hello Minecraft Sever Launcher v1.0.0</title>
+    <link type="text/css" href="res/css/default_theme.css" rel="stylesheet" id="link_app_theme">
     <link type="text/css" href="res/css/main_style.css" rel="stylesheet">
     <link type="text/css" href="res/css/animations.css" rel="stylesheet">
     <link type="text/css" href="res/css/topbar_style.css" rel="stylesheet">
-    <link type="text/css" href="res/css/mainpage_style.css" rel="stylesheet">
-    <link type="text/css" href="res/css/severlist_style.css" rel="stylesheet">
+    <link type="text/css" href="res/css/main_page_style.css" rel="stylesheet">
+    <link type="text/css" href="res/css/sever_list_style.css" rel="stylesheet">
+    <link type="text/css" href="res/css/sever_setting_style.css" rel="stylesheet">
 </head>
 <body>
 <script>
@@ -28,7 +30,7 @@
                 <span>服务器</span>
                 <div class="list_textblock_border"></div>
             </div>
-            <div class="list_option" onclick="goPage('sever_manage', {iconPath: 'url(\'./res/img/appicon/icon.png\')', iconClickEvent: 'goMainPage()', title: 'TEST 1.20'})">
+            <div class="list_option" onclick="goPage('sever_setting', {iconPath: 'url(\'./res/img/appicon/icon.png\')', iconClickEvent: 'goMainPage()', title: 'TEST 1.20'})">
                 <img src="res/img/appicon/icon.png" class="list_option_icon" id="main_now_sever_icon">
                 <span class="list_option_title">TEST 1.20.1</span>
             </div>
@@ -80,11 +82,11 @@
                 </div>
             </div>
             <div id="sever_folder_list_buttons">
-                <div class="sever_folder_list_button_block">
+                <div class="sever_folder_list_button_block evt_hover">
                     <button class="sever_folder_list_block_button" id="sever_folder_list_add"></button>
                     <span class="sever_folder_list_block_name">添加服务器目录</span>
                 </div>
-                <div class="sever_folder_list_button_block">
+                <div class="sever_folder_list_button_block evt_hover">
                     <button class="sever_folder_list_block_button" id="sever_folder_list_reload"></button>
                     <span class="sever_folder_list_block_name">刷新</span>
                 </div>
@@ -111,15 +113,45 @@
             </div>
         </div>
     </div>
-    <div class="body_cont" id="sever_manage" style="display: none">
-        <h1>TEST</h1>
+    <div class="body_cont" id="sever_setting" style="display: none">
+        <div id="sever_setting_left_buttons">
+            <div class="sever_setting_button evt_hover" style="margin-top: 20px">
+                <span class="sever_folder_list_block_button"></span>
+                <span class="sever_folder_list_block_name">服务器设置</span>
+            </div>
+            <div class="sever_setting_button evt_hover">
+                <span class="sever_folder_list_block_button"></span>
+                <span class="sever_folder_list_block_name">模组管理</span>
+            </div>
+            <div class="sever_setting_button evt_hover">
+                <span class="sever_folder_list_block_button"></span>
+                <span class="sever_folder_list_block_name">插件管理</span>
+            </div>
+            <div class="sever_setting_button evt_hover">
+                <span class="sever_folder_list_block_button"></span>
+                <span class="sever_folder_list_block_name">自动安装</span>
+            </div>
+            <div id="sever_setting_left_buttons_bottom_cont">
+                <div class="sever_setting_button evt_hover">
+                    <span class="sever_folder_list_block_button"></span>
+                    <span class="sever_folder_list_block_name">管理</span>
+                </div>
+                <div class="sever_setting_button evt_hover">
+                    <span class="sever_folder_list_block_button"></span>
+                    <span class="sever_folder_list_block_name">浏览</span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script>
     let unregistered_page = [];
     window.dep.ipcRenderer.send("HTMLInit");
 </script>
-<script src="res/js/api_renderer.js"></script>
 <script src="res/js/renderer.js"></script>
+<script src="res/js/api_renderer.js"></script>
+<script>
+    window.dep.ipcRenderer.send("GetAppConfig");
+</script>
 </body>
 </html>

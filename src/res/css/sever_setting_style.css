@@ -1,0 +1,39 @@
+#sever_setting_left_buttons {
+    position: absolute;
+    bottom: 0;
+    width: 180px;
+    height: 100%;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 0;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#sever_setting_left_buttons_bottom_cont {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 135px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.sever_setting_button {
+    margin: 3px;
+    width: 100%;
+    padding: 8px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sever_setting_button > span {
+    font-size: 14px;
+}

@@ -1,0 +1,9 @@
+{
+  "author": "Hxgfk",
+  "license": "GPL-3.0",
+  "name": "hmsl",
+  "version": "1.0.0",
+  "description": "Hello Minecraft Sever Launcher",
+  "main": "./res/js/main.js",
+  "dependencies": {}
+}

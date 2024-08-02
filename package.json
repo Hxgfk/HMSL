@@ -1,39 +1,52 @@
 {
-  "name": "hmsl",
-  "version": "1.0.0",
-  "description": "Hello Minecraft Sever Launcher",
-  "main": "res/js/main.js",
+  "main": "./src/res/js/main.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "electron ./src/",
     "test": "echo Error: no test specified && exit 1",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "electron:generate-icons": "electron-icon-builder --input=./res/img/appicon.png --output=build --flatten"
+    "electron:generate-icons": "electron-icon-builder --input=./src/res/img/appicon.png --output=build --flatten",
+    "package": "electron-builder --win --x64"
   },
-  "author": "Hxgfk",
-  "license": "GPL-3.0",
   "devDependencies": {
-    "@electron-forge/cli": "^7.4.0",
-    "@electron-forge/maker-deb": "^7.4.0",
-    "@electron-forge/maker-rpm": "^7.4.0",
-    "@electron-forge/maker-squirrel": "^7.4.0",
-    "@electron-forge/maker-zip": "^7.4.0",
-    "@electron-forge/plugin-auto-unpack-natives": "^7.4.0",
-    "@electron-forge/plugin-fuses": "^7.4.0",
-    "@electron/fuses": "^1.8.0",
-    "electron": "^31.2.1"
+    "electron": "^31.3.0",
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2",
+    "electron-squirrel-startup": "^1.0.1"
   },
   "dependencies": {
-    "electron-icon-builder": "^2.0.1",
-    "electron-squirrel-startup": "^1.0.1",
-    "styled-components": "^6.1.12"
+    "@electron/fuses": "^1.8.0",
+    "electron-icon-builder": "^2.0.1"
   },
   "build": {
+    "productName": "HelloMinecraftSeverLauncher",
     "appId": "hmsl",
+    "copyright": "GPLv3.0",
+    "asar": true,
+    "extraResources": {
+      "from": "./src/appconfig.json",
+      "to": "../appconfig.json"
+    },
+    "directories": {
+      "output": "out",
+      "app": "src"
+    },
+    "nsis": {
+      "artifactName": "HMSLApp.exe",
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./src/res/img/appicon/icon.ico",
+      "uninstallerIcon": "./src/res/img/appicon/icon.ico",
+      "installerHeaderIcon": "./src/res/img/appicon/icon.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": false,
+      "shortcutName": "./src/res/img/appicon/icon.ico"
+    },
     "win": {
-      "target": [
-        "portable"
-      ]
+      "icon": "./src/res/img/appicon/icon.ico",
+      "extraResources": {
+        "from": "./src/appconfig.json",
+        "to": "../appconfig.json"
+      }
     }
   }
 }

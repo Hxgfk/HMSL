@@ -3,38 +3,39 @@ function hideWindow() {
 }
 
 function closeWindow() {
-    window.dep.ipcRenderer.invoke('CloseWindow');
+    window.dep.ipcRenderer.invoke('CloseApp');
 }
 
 function goToGithub() {
     window.dep.ipcRenderer.send("OpenURLByDefaultBrowser", ['https://github.com/Hxgfk/HMSL',])
 }
 
-window.dep.ipcRenderer.send('GetAppConfig');
-let AppConfig;
-window.dep.ipcRenderer.on('GetAppConfigBack', (event, data) => {
-    AppConfig = data;
-});
+let AppConfig = null;
+(async () => {
+    window.dep.ipcRenderer.on('GetAppConfigBack', async (event, data) => {
+        AppConfig = data;
+    });
+})();
 const topicon = document.getElementById("appicon");
 const topname = document.getElementById("top_name");
 const main_cont = document.getElementById("bodydiv");
-let defaultElementDisplayMode = {
+const defaultElementDisplayMode = {
     mainpage: "block",
     sever_list: "flex",
-    sever_manage: "flex"
+    sever_setting: "flex"
 }
 let currentPage = "mainpage";
 const mainpage = document.getElementById('mainpage');
 const sever_list = document.getElementById('sever_list');
-const sever_manage = document.getElementById('sever_manage');
+const sever_setting = document.getElementById('sever_setting');
 
-let PageContainers = {
+const PageContainers = {
     "mainpage": mainpage,
     "sever_list": sever_list,
-    "sever_manage": sever_manage
+    "sever_setting": sever_setting
 };
 
-let PageContainerElements = {
+const PageContainerElements = {
     "mainpage": [
         {
             elm: document.getElementById("selectlist"),
@@ -55,9 +56,15 @@ let PageContainerElements = {
             direction: "right"
         }
     ],
-    "sever_manage": []
+    "sever_setting": [
+        {
+            elm: document.getElementById("sever_setting_left_buttons"),
+            direction: "left"
+        }
+    ]
 };
 
+// plugin load
 document.addEventListener("DOMContentLoaded", () => {
     for (const page_obj of unregistered_page) {
         const pagediv = document.createElement("div");

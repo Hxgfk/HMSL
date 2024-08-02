@@ -1,0 +1,7 @@
+html {
+    --theme: #5c6bc0;
+}
+
+#bodydiv {
+    background-image: url("../img/defaultbackground/1.png");
+}
