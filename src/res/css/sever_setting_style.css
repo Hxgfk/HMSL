@@ -5,35 +5,45 @@
     height: 100%;
     display: flex;
     background-color: rgba(255, 255, 255, 0.6);
-    padding: 0;
-    align-items: center;
     flex-direction: column;
     justify-content: flex-start;
     overflow-x: hidden;
     overflow-y: hidden;
+    align-items: flex-start;
 }
 
 #sever_setting_left_buttons_bottom_cont {
     position: absolute;
     bottom: 0;
-    width: 100%;
     height: 135px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: flex-start;
+    margin: 0;
 }
 
 .sever_setting_button {
-    margin: 3px;
-    width: 100%;
     padding: 8px;
     z-index: 2;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    width: 100%;
+}
+
+.sever_setting_button > img {
+    margin-left: 10px;
 }
 
 .sever_setting_button > span {
     font-size: 14px;
 }
+
+.sever_setting_button_icon {
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    margin-right: 15px;
+}
+

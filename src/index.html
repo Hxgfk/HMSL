@@ -10,11 +10,13 @@
     <link type="text/css" href="res/css/main_page_style.css" rel="stylesheet">
     <link type="text/css" href="res/css/sever_list_style.css" rel="stylesheet">
     <link type="text/css" href="res/css/sever_setting_style.css" rel="stylesheet">
+    <script src="res/js/init_renderer_before.js"></script>
+    <script>
+        window.dep.ipcRenderer.send("HTMLPreInit");
+        window.dep.ipcRenderer.send("GetBeforeScripts");
+    </script>
 </head>
 <body>
-<script>
-    window.dep.ipcRenderer.send("HTMLPreInit");
-</script>
 <div id="topbar">
     <button id="appicon"></button>
     <span id="top_name">Hello Minecraft Sever Launcher v1.0.0</span>
@@ -26,32 +28,32 @@
 <div id="bodydiv" class="noselect noappdrag">
     <div class="body_cont" id="mainpage">
         <div id="selectlist">
-            <div class="list_textblock">
+            <div class="list_textblock" emeta="{anim: true,dire: 'left',pgfrom: 'mainpage'}">
                 <span>服务器</span>
                 <div class="list_textblock_border"></div>
             </div>
-            <div class="list_option" onclick="goPage('sever_setting', {iconPath: 'url(\'./res/img/appicon/icon.png\')', iconClickEvent: 'goMainPage()', title: 'TEST 1.20'})">
+            <div class="list_option" emeta="{anim: true,dire: 'left',pgfrom: 'mainpage'}" onclick="goPage('sever_setting', {iconPath: 'url(\'./res/img/appicon/icon.png\')', iconClickEvent: 'goMainPage()', title: 'TEST 1.20'})">
                 <img src="res/img/appicon/icon.png" class="list_option_icon" id="main_now_sever_icon">
                 <span class="list_option_title">TEST 1.20.1</span>
             </div>
-            <div class="list_option" onclick="goPage('sever_list', {iconPath: 'url(\'./res/img/icons/arrow_left.png\')', iconClickEvent: 'goMainPage()', title: '已安装的服务器'})">
+            <div class="list_option" emeta="{anim: true,dire: 'left',pgfrom: 'mainpage'}" onclick="goPage('sever_list', {iconPath: 'url(\'./res/img/icons/arrow_left.png\')', iconClickEvent: 'goMainPage()', title: '已安装的服务器'})">
                 <img src="res/img/icons/installed_list.png" class="list_option_icon">
-                <span class="list_option_title">已安装的服务器</span>
+                <span class="list_option_title" id="ICON_MAINPAGE_SEVER_LIST">已安装的服务器</span>
             </div>
-            <div class="list_option">
+            <div class="list_option" emeta="{anim: true,dire: 'left',pgfrom: 'mainpage'}">
                 <img src="res/img/icons/download.png" class="list_option_icon">
-                <span class="list_option_title">下载安装新服务器</span>
+                <span class="list_option_title" id="ICON_MAINPAGE_INSTALL_NEW">安装新服务器</span>
             </div>
-            <div class="list_textblock">
+            <div class="list_textblock" emeta="{anim: true,dire: 'left',pgfrom: 'mainpage'}">
                 <span>通用</span>
                 <div class="list_textblock_border"></div>
             </div>
-            <div class="list_option noselect">
-                <img src="res/img/icons/installed_list.png" class="list_option_icon">
+            <div class="list_option noselect" emeta="{anim: true,dire: 'left',pgfrom: 'mainpage'}">
+                <img src="res/img/icons/installed_list.png" class="list_option_icon" id="ICON_MAINPAGE_APP_SETTING">
                 <span class="list_option_title">设置</span>
             </div>
-            <div class="list_option noselect" onclick="goToGithub()">
-                <img src="res/img/icons/github.png" class="list_option_icon">
+            <div class="list_option noselect" onclick="goToGithub()" emeta="{anim: true,dire: 'left',pgfrom: 'mainpage'}">
+                <img src="res/img/icons/github.png" class="list_option_icon" id="ICON_MAINPAGE_OPENSOURCE">
                 <span class="list_option_title">开源</span>
             </div>
         </div>
@@ -75,30 +77,30 @@
     <div class="body_cont" id="sever_list" style="display: none">
         <div id="sever_folder_list_leftbar">
             <div id="sever_folder_list">
-                <div class="sever_folder_list_block">
+                <div class="sever_folder_list_block" emeta="{anim: true,dire: 'left',pgfrom: 'sever_list'}">
                     <img src="res/img/icons/folder.png" class="sever_folder_list_block_icon">
                     <span class="sever_folder_list_block_name">MAIN FOLDER</span>
                     <button class="sever_folder_list_block_button_delete"></button>
                 </div>
             </div>
             <div id="sever_folder_list_buttons">
-                <div class="sever_folder_list_button_block evt_hover">
+                <div class="sever_folder_list_button_block evt_hover" emeta="{anim: true,dire: 'left',pgfrom: 'sever_list'}">
                     <button class="sever_folder_list_block_button" id="sever_folder_list_add"></button>
                     <span class="sever_folder_list_block_name">添加服务器目录</span>
                 </div>
-                <div class="sever_folder_list_button_block evt_hover">
+                <div class="sever_folder_list_button_block evt_hover" emeta="{anim: true,dire: 'left',pgfrom: 'sever_list'}">
                     <button class="sever_folder_list_block_button" id="sever_folder_list_reload"></button>
                     <span class="sever_folder_list_block_name">刷新</span>
                 </div>
             </div>
         </div>
         <div id="sever_folder_list_main">
-            <span id="sever_folder_list_main_title">文件夹内服务器列表</span>
-            <div id="sever_folder_list_main_textcont">
+            <span id="sever_folder_list_main_title" emeta="{anim: true,dire: 'right',pgfrom: 'sever_list'}">文件夹内服务器列表</span>
+            <div id="sever_folder_list_main_textcont" emeta="{anim: true,dire: 'right',pgfrom: 'sever_list'}">
                 <span id="sever_folder_list_main_notfound">当前文件夹下未找到任何服务器</span>
             </div>
-            <div id="sever_folder_list_forjs">
-                <div class="sever_list_block">
+            <div id="sever_folder_list_forjs" emeta="{anim: true,dire: 'right',pgfrom: 'sever_list'}">
+                <div class="sever_list_block" emeta="{anim: true,dire: 'right',pgfrom: 'sever_list'}">
                     <div class="sever_list_block_left">
                         <img src="res/img/icons/defaultsever.png" class="sever_list_block_icon">
                         <div class="sever_list_block_information_cont">
@@ -115,29 +117,29 @@
     </div>
     <div class="body_cont" id="sever_setting" style="display: none">
         <div id="sever_setting_left_buttons">
-            <div class="sever_setting_button evt_hover" style="margin-top: 20px">
-                <span class="sever_folder_list_block_button"></span>
+            <div class="sever_setting_button evt_hover" style="margin-top: 20px" emeta="{anim: true,dire: 'left',pgfrom: 'sever_setting'}">
+                <img class="sever_setting_button_icon" src="res/img/icons/setting.png" id="ICON_SEVER_SETTING_SETTING"/>
                 <span class="sever_folder_list_block_name">服务器设置</span>
             </div>
-            <div class="sever_setting_button evt_hover">
-                <span class="sever_folder_list_block_button"></span>
+            <div class="sever_setting_button evt_hover" emeta="{anim: true,dire: 'left',pgfrom: 'sever_setting'}">
+                <img class="sever_setting_button_icon" src="res/img/icons/plugin.png" id="ICON_SEVER_SETTING_MOD"></img>
                 <span class="sever_folder_list_block_name">模组管理</span>
             </div>
-            <div class="sever_setting_button evt_hover">
-                <span class="sever_folder_list_block_button"></span>
+            <div class="sever_setting_button evt_hover" emeta="{anim: true,dire: 'left',pgfrom: 'sever_setting'}">
+                <img class="sever_setting_button_icon" src="res/img/icons/plugin.png" id="ICON_SEVER_SETTING_PLUGIN"/>
                 <span class="sever_folder_list_block_name">插件管理</span>
             </div>
-            <div class="sever_setting_button evt_hover">
-                <span class="sever_folder_list_block_button"></span>
+            <div class="sever_setting_button evt_hover" emeta="{anim: true,dire: 'left',pgfrom: 'sever_setting'}">
+                <img class="sever_setting_button_icon" src="res/img/icons/block2.png" id="ICON_SEVER_SETTING_INSTALL"/>
                 <span class="sever_folder_list_block_name">自动安装</span>
             </div>
             <div id="sever_setting_left_buttons_bottom_cont">
-                <div class="sever_setting_button evt_hover">
-                    <span class="sever_folder_list_block_button"></span>
+                <div class="sever_setting_button evt_hover" emeta="{anim: true,dire: 'left',pgfrom: 'sever_setting'}">
+                    <img class="sever_setting_button_icon" src="res/img/icons/wrench.png" id="ICON_SEVER_SETTING_MANGE"/>
                     <span class="sever_folder_list_block_name">管理</span>
                 </div>
-                <div class="sever_setting_button evt_hover">
-                    <span class="sever_folder_list_block_button"></span>
+                <div class="sever_setting_button evt_hover" emeta="{anim: true,dire: 'left',pgfrom: 'sever_setting'}">
+                    <img class="sever_setting_button_icon" src="res/img/icons/folder.png" id="ICON_SEVER_SETTING_BROWS"/>
                     <span class="sever_folder_list_block_name">浏览</span>
                 </div>
             </div>

@@ -1,0 +1,7 @@
+{
+  "appVersion": "1.0.0",
+  "general": {
+    "animation": true,
+    "animation_time": "0.2s"
+  }
+}

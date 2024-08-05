@@ -15,31 +15,86 @@ function registryPage(id, elementtext, maincontainer_display_mode="block", conte
     });
 }
 
-function goPageWithAnimation(anim_target, targetType, callback=function (){}) {
+function goPageWithAnimation(anim_target, targetId, callback=function (){}) {
     if (AppConfig.general.animation) {
         for (const hide_obj of anim_target.hides) {
+            if (hide_obj.elm === "emeta") {
+                const list = Array.from(document.querySelectorAll("[emeta]"))
+                    .filter(
+                        element => {
+                            const m = eval(`(${element.getAttribute("emeta")})`);
+                            return m["pgfrom"] === targetId && m["anim"] === true;
+                        }
+                    );
+                for (const e of list) {
+                    const elm_emeta = eval(`(${e.getAttribute("emeta")})`);
+                    e.style.animation = `${elm_emeta.dire}_hide ${AppConfig.general.animation_time} forwards`;
+                }
+                continue;
+            }
             hide_obj.elm.style.animation = `${hide_obj.direction}_hide ${AppConfig.general.animation_time} forwards`;
         }
         setTimeout(function () {
             anim_target.hide_container.style.display = "none";
-            anim_target.show_container.style.display = defaultElementDisplayMode[targetType];
+            anim_target.show_container.style.display = defaultElementDisplayMode[targetId];
             for (const show_obj of anim_target.shows) {
+                if (show_obj.elm === "emeta") {
+                    const list = Array.from(document.querySelectorAll("[emeta]"))
+                        .filter(
+                            element => {
+                                const m = eval(`(${element.getAttribute("emeta")})`);
+                                return m["pgfrom"] === targetId && m["anim"] === true;
+                            }
+                        );
+                    let animTime = 30;
+                    for (const e of list) {
+                        setTimeout(function () {
+                            const elm_emeta = eval(`(${e.getAttribute("emeta")})`);
+                            e.style.animation = `${elm_emeta.dire}_show ${AppConfig.general.animation_time} forwards`;
+                        }, transAnimTime(AppConfig.general.animation_time) + animTime);
+                        animTime += 30;
+                    }
+                    continue;
+                }
                 show_obj.elm.style.animation = `${show_obj.direction}_show ${AppConfig.general.animation_time} forwards`;
             }
             callback();
         }, transAnimTime(AppConfig.general.animation_time));
     }else {
         for (const hide_obj of anim_target.hides) {
+            if (hide_obj.elm === "emeta") {
+                const list = Array.from(document.querySelectorAll("[emeta]"))
+                    .filter(
+                        element => {
+                            return eval(`(${element.getAttribute("emeta")})`)["pgfrom"] === targetId;
+                        }
+                    );
+                for (const e of list) {
+                    e.style.style.display = "none";
+                }
+                continue;
+            }
             hide_obj.elm.style.display = "none";
         }
         anim_target.hide_container.style.display = "none";
-        anim_target.show_container.style.display = defaultElementDisplayMode[targetType];
+        anim_target.show_container.style.display = defaultElementDisplayMode[targetId];
         for (const show_obj of anim_target.shows) {
+            if (show_obj.elm === "emeta") {
+                const list = Array.from(document.querySelectorAll("[emeta]"))
+                    .filter(
+                        element => {
+                            return eval(`(${element.getAttribute("emeta")})`)["pgfrom"] === targetId;
+                        }
+                    );
+                for (const e of list) {
+                    e.style.style.display = "block";
+                }
+                continue;
+            }
             show_obj.elm.style.display = "block";
         }
     }
 }
-
 
 function goPage(id, topbar={
     iconPath: "url('./res/img/appicon/icon.png')",

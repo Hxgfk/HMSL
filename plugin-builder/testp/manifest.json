@@ -1,0 +1,21 @@
+{
+  "name": "HelloWorld",
+  "version": "1.0",
+  "id": "hw",
+  "description": "李俊",
+  "css": ["mystyle.css"],
+  "js": {
+    "main": "main.js",
+    "renderers": [
+      {
+        "path": "my_data1.js",
+        "loadin": "before"
+      },
+      {
+        "path": "my_renderer1.js",
+        "loadin": "after"
+      }
+    ]
+  },
+  "resource": "res"
+}

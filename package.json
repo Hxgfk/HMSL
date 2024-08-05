@@ -1,12 +1,13 @@
 {
   "main": "./src/res/js/main.js",
   "scripts": {
-    "start": "electron ./src/",
+    "start": "chcp 65001 && electron ./src/",
     "test": "echo Error: no test specified && exit 1",
     "electron:generate-icons": "electron-icon-builder --input=./src/res/img/appicon.png --output=build --flatten",
     "package": "electron-builder --win --x64"
   },
   "devDependencies": {
+    "asar": "^3.2.0",
     "electron": "^31.3.0",
     "electron-builder": "^24.13.3",
     "electron-packager": "^17.1.2",
@@ -22,8 +23,12 @@
     "copyright": "GPLv3.0",
     "asar": true,
     "extraResources": {
-      "from": "./src/appconfig.json",
-      "to": "../appconfig.json"
+      "from": "./src/extrares/",
+      "to": "../"
+    },
+    "extraFiles": {
+      "from": "./src/extrares/",
+      "to": "../"
     },
     "directories": {
       "output": "out",
@@ -39,13 +44,13 @@
       "installerHeaderIcon": "./src/res/img/appicon/icon.ico",
       "createDesktopShortcut": true,
       "createStartMenuShortcut": false,
-      "shortcutName": "./src/res/img/appicon/icon.ico"
+      "shortcutName": "Hello Minecraft Sever Launcher"
     },
     "win": {
       "icon": "./src/res/img/appicon/icon.ico",
-      "extraResources": {
-        "from": "./src/appconfig.json",
-        "to": "../appconfig.json"
+      "extraFiles": {
+        "from": "./src/extrares/",
+        "to": "../"
       }
     }
   }
